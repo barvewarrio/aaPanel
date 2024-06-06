@@ -1,7 +1,7 @@
 ## aapanel一键更换镜像并安装
 
 ```
-wget --no-check-certificate -O update_repos.sh https://raw.githubusercontent.com/barvewarrio/aaPanel/main/update_repos.sh
+wget --no-check-certificate -O update_repos.sh https://raw.githubusercontent.com/barvewarrio/aaPanel/main/aapanel_update_repos/update_repos.sh
 ```
 
 
