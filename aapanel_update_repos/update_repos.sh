@@ -47,7 +47,7 @@ cat <<EOF > /etc/yum.repos.d/CentOS-Stream-PowerTools.repo
 name=CentOS Stream $releasever - PowerTools
 baseurl=http://mirrors.aliyun.com/centos/$stream/PowerTools/$basearch/os/
 gpgcheck=1
-enabled=0  # 或者将这一行删除以禁用该存储库
+enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
 EOF
 
