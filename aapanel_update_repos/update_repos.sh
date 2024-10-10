@@ -16,8 +16,8 @@ sed -i '/^\[extras\]/d' /etc/yum.repos.d/*.repo
 # 替换为阿里云镜像源
 cat <<EOF > /etc/yum.repos.d/CentOS-Stream-AppStream.repo
 [AppStream]
-name=CentOS Stream \$releasever - AppStream
-baseurl=http://mirrors.aliyun.com/centos/\$stream/AppStream/\$basearch/os/
+name=CentOS Stream $releasever - AppStream
+baseurl=http://mirrors.aliyun.com/centos/$stream/AppStream/$basearch/os/
 gpgcheck=1
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
@@ -26,8 +26,8 @@ EOF
 
 cat <<EOF > /etc/yum.repos.d/CentOS-Stream-BaseOS.repo
 [BaseOS]
-name=CentOS Stream \$releasever - BaseOS
-baseurl=http://mirrors.aliyun.com/centos/\$stream/BaseOS/\$basearch/os/
+name=CentOS Stream $releasever - BaseOS
+baseurl=http://mirrors.aliyun.com/centos/$stream/BaseOS/$basearch/os/
 gpgcheck=1
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
@@ -35,8 +35,8 @@ EOF
 
 cat <<EOF > /etc/yum.repos.d/CentOS-Stream-Extras.repo
 [extras]
-name=CentOS Stream \$releasever - Extras
-baseurl=http://mirrors.aliyun.com/centos/\$stream/extras/\$basearch/os/
+name=CentOS Stream $releasever - Extras
+baseurl=http://mirrors.aliyun.com/centos/$stream/extras/$basearch/os/
 gpgcheck=1
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
@@ -44,8 +44,8 @@ EOF
 
 cat <<EOF > /etc/yum.repos.d/CentOS-Stream-PowerTools.repo
 [PowerTools]
-name=CentOS Stream \$releasever - PowerTools
-baseurl=http://mirrors.aliyun.com/centos/\$stream/PowerTools/\$basearch/os/
+name=CentOS Stream $releasever - PowerTools
+baseurl=http://mirrors.aliyun.com/centos/$stream/PowerTools/$basearch/os/
 gpgcheck=1
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
