@@ -17,17 +17,16 @@ sed -i '/^\[extras\]/d' /etc/yum.repos.d/*.repo
 cat <<EOF > /etc/yum.repos.d/CentOS-Stream-AppStream.repo
 [AppStream]
 name=CentOS Stream $releasever - AppStream
-baseurl=http://mirrors.aliyun.com/centos/$stream/AppStream/$basearch/os/
+baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos/7/stream/x86_64/AppStream/
 gpgcheck=1
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
-skip_if_unavailable=True
 EOF
 
 cat <<EOF > /etc/yum.repos.d/CentOS-Stream-BaseOS.repo
 [BaseOS]
 name=CentOS Stream $releasever - BaseOS
-baseurl=http://mirrors.aliyun.com/centos/$stream/BaseOS/$basearch/os/
+baseurl=https://mirrors.tuna.tsinghua.edu.cn/centos/7/stream/x86_64/BaseOS/
 gpgcheck=1
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
