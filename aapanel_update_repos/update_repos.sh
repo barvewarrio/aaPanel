@@ -3,7 +3,7 @@
 # 定义变量
 releasever=7
 basearch=x86_64
-stream=stream
+stream="CentOS-Stream"
 backup_dir="/etc/yum.repos.d/backup_$(date +%Y%m%d_%H%M%S)"
 
 # 创建备份目录并备份现有的 repo 文件
@@ -47,13 +47,13 @@ cat <<EOF > /etc/yum.repos.d/CentOS-Stream-PowerTools.repo
 name=CentOS Stream $releasever - PowerTools
 baseurl=http://mirrors.aliyun.com/centos/$stream/PowerTools/$basearch/os/
 gpgcheck=1
-enabled=1
+enabled=0  # 或者将这一行删除以禁用该存储库
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
 EOF
 
 # 清除yum缓存并生成新的缓存
 yum clean all
-yum makecache --disablerepo=AppStream
+yum makecache --disablerepo=PowerTools
 
 # 重新尝试安装 aaPanel
 URL=https://www.aapanel.com/script/install_7.0_en.sh
