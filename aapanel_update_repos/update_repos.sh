@@ -10,8 +10,8 @@ backup_dir="/etc/yum.repos.d/backup_$(date +%Y%m%d_%H%M%S)"
 mkdir -p "$backup_dir"
 cp /etc/yum.repos.d/*.repo "$backup_dir"
 
-# 禁用所有现有的仓库
-sed -i 's/enabled=1/enabled=0/g' /etc/yum.repos.d/*.repo
+# 移除重复的 [extras] 配置
+sed -i '/^\[extras\]/d' /etc/yum.repos.d/*.repo
 
 # 替换为阿里云镜像源
 cat <<EOF > /etc/yum.repos.d/CentOS-Stream-AppStream.repo
@@ -21,6 +21,7 @@ baseurl=http://mirrors.aliyun.com/centos/\$stream/AppStream/\$basearch/os/
 gpgcheck=1
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
+skip_if_unavailable=True
 EOF
 
 cat <<EOF > /etc/yum.repos.d/CentOS-Stream-BaseOS.repo
@@ -52,7 +53,7 @@ EOF
 
 # 清除yum缓存并生成新的缓存
 yum clean all
-yum makecache
+yum makecache --disablerepo=AppStream
 
 # 重新尝试安装 aaPanel
 URL=https://www.aapanel.com/script/install_7.0_en.sh
